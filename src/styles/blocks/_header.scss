@@ -1,0 +1,88 @@
+.header {
+  background: url(../images/header.jpg) center / cover no-repeat;
+
+  @include onDesktop {
+    --icon-size: 32px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100vh;
+
+    padding: $header-top-paddning-mobile 0 88px;
+
+    @include onTablet {
+      padding-top: $header-top-paddning;
+      height: 100vh;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--icon-size);
+  }
+
+  &__call {
+    width: var(--icon-size);
+
+    @include onDesktop {
+      &::before {
+        content: "+1 234 5555-55-55";
+
+        transform: translate(-50%, 50%) scaleX(0);
+
+        display: block;
+        width: max-content;
+        padding-right: 8px;
+
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: $c-darkgray-29;
+
+        opacity: 0;
+
+        visibility: hidden;
+        pointer-events: none;
+
+        @include transitions(opacity transform);
+      }
+
+      &:hover {
+        &::before {
+          pointer-events: all;
+          visibility: visible;
+          opacity: 1;
+          transform: translate(-100%, 50%) scaleX(1);
+        }
+      }
+    }
+  }
+
+  &__menu-icon {
+    width: var(--icon-size);
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 100%;
+    letter-spacing: -1.5px;
+
+    color: $c-darkgray-29;
+
+    @include onTablet {
+      font-size: 64px;
+    }
+
+    @include onDesktop {
+      font-size: 80px;
+    }
+  }
+}

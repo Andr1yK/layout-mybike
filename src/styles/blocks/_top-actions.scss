@@ -1,0 +1,13 @@
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include onTablet {
+    --icon-size: 32px;
+  }
+
+  &__cross {
+    width: var(--icon-size);
+  }
+}
